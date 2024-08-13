@@ -39,26 +39,33 @@ export default function ToDoList() {
     return (
         <div>
             <h1 className="list-title">TODO List</h1>
-            <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Enter task..."
-                className="task-input"
-            />
-            <button className="button" onClick={addTask}>Add</button>
+
+            <div className="add-task-container">
+                <div className="add-input">
+                    <input
+                        type="text"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        placeholder="Enter task..."
+                        className="task-input"
+                    />
+                </div>
+
+                <button className="button" onClick={addTask}>Add</button>
+            </div>
 
             <ul className="task-list">
                 {tasks.map(task => (
                     <li className="task-item" key={task.id}>
                         <div>
+                        <label className="checkbox">
                             <input
                                 type="checkbox"
-                                className="custom-checkbox"
                                 checked={task.completed}
                                 onChange={() => toggleTask(task.id)}
                             />
                             <span className="checkmark"></span>
+                        </label>
                         </div>
                         
                         <p className="task-text" style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>

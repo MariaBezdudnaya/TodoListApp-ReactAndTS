@@ -1,21 +1,31 @@
 .App {
   text-align: center;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 800px;
 }
-
 .list-title {
   margin-top: 80px;
   margin-bottom: 15px;
   font-size: 2rem;
 }
+.add-task-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.add-input {
+  flex-grow: 1;
+}
 .task-input {
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
   padding: 10px 15px;
-  width: 60%;
-  max-width: 600px;
   border-radius: 5px;
   border: 1px solid #eee;
   box-shadow: 0 0 10px #eee;
   font-size: 1rem;
-  box-sizing: border-box;
 }
 .button {
   margin-left: 15px;
@@ -32,61 +42,61 @@
   background-color: #e3d7d7;
 }
 .task-list {
-  width: 80%;
-  max-width: 800px;
+  min-height: 40vh;
   margin: 20px auto;
   padding: 30px;
   list-style-type: none;
   text-align: left;
-  background-color: #c3aaaa;
+  background-color: #ede3e3;
   border-radius: 5px;
   box-sizing: border-box;
 }
 .task-item {
   display: flex;
-  justify-content: space-between; /* Изменяем на flex-start */
-  align-items: center; /* Центрируем элементы вертикально */
+  justify-content: space-between; 
+  align-items: center; 
   text-align: left;
-  margin: 10px 0; /* Добавляем отступ между задачами */
+  margin: 10px 0;
   flex-wrap: nowrap;
 }
 .task-text {
-  flex-grow: 1; /* Заставляет текст занимать все доступное пространство */
-  word-wrap: break-word; /* Перенос длинных слов на новую строку */
-  overflow-wrap: break-word; /* Поддержка для старых браузеров */
-  min-width: 0; /* Убедимся, что элемент может сжиматься, чтобы избежать переполнения */
+  flex-grow: 1;
+  word-wrap: break-word;
+  min-width: 0;
 }
 
-.custom-checkbox {
+.checkbox {
   position: relative;
-  margin-right: 10px;
+  margin-right: 15px;
   display: inline-block;
   width: 20px; 
   height: 20px; 
   cursor: pointer;
 }
-.custom-checkbox input {
+.checkbox input {
   opacity: 0; 
   width: 0;
   height: 0;
 }
 .checkmark {
   position: absolute;
-  background-color: #eee;
+  background-color: #fff;
   border-radius: 4px;
+  width: 20px; 
+  height: 20px;
 }
-.custom-checkbox input:checked + .checkmark {
-  background-color: #85a6ae;
+.checkbox input:checked + .checkmark {
+  background: #bf8989;
 }
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-.custom-checkbox input:checked + .checkmark:after {
+.checkbox input:checked + .checkmark:after {
   display: block;
 }
-.custom-checkbox .checkmark:after {
+.checkbox .checkmark:after {
   left: 6px;
   top: 2px;
   width: 5px; /* Ширина галочки */
