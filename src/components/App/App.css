@@ -5,24 +5,25 @@
 .list-title {
   margin-top: 80px;
   margin-bottom: 15px;
-  font-size: 32px;
+  font-size: 2rem;
 }
 .task-input {
   padding: 10px 15px;
-  width: 350px;
+  width: 60%;
+  max-width: 600px;
   border-radius: 5px;
   border: 1px solid #eee;
   box-shadow: 0 0 10px #eee;
-  font-size: medium;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 .button {
   margin-left: 15px;
-  margin-bottom: 15px;
   padding: 10px 15px;
   border-radius: 5px;
   border: 1px solid #eee;
   box-shadow: 0 0 5px #bf8989;
-  font-size: medium;
+  font-size: 1rem;
   cursor: pointer;
   background-color: #cbb4b4;
   transition: 0.5s;
@@ -31,19 +32,34 @@
   background-color: #e3d7d7;
 }
 .task-list {
-  width: 400px;
+  width: 80%;
+  max-width: 800px;
   margin: 20px auto;
   padding: 30px;
   list-style-type: none;
   text-align: left;
   background-color: #c3aaaa;
   border-radius: 5px;
+  box-sizing: border-box;
+}
+.task-item {
+  display: flex;
+  justify-content: space-between; /* Изменяем на flex-start */
+  align-items: center; /* Центрируем элементы вертикально */
+  text-align: left;
+  margin: 10px 0; /* Добавляем отступ между задачами */
+  flex-wrap: nowrap;
+}
+.task-text {
+  flex-grow: 1; /* Заставляет текст занимать все доступное пространство */
+  word-wrap: break-word; /* Перенос длинных слов на новую строку */
+  overflow-wrap: break-word; /* Поддержка для старых браузеров */
+  min-width: 0; /* Убедимся, что элемент может сжиматься, чтобы избежать переполнения */
 }
 
 .custom-checkbox {
   position: relative;
   margin-right: 10px;
-  top: 5px;
   display: inline-block;
   width: 20px; 
   height: 20px; 
@@ -56,12 +72,11 @@
 }
 .checkmark {
   position: absolute;
- 
   background-color: #eee;
-  border-radius: 4px; /* Скруглённые углы */
+  border-radius: 4px;
 }
 .custom-checkbox input:checked + .checkmark {
-  background-color: #85a6ae; /* Цвет, когда включен */
+  background-color: #85a6ae;
 }
 .checkmark:after {
   content: "";
@@ -81,15 +96,3 @@
   transform: rotate(45deg);
 }
 
-@media screen  and (max-width: 375px) {
-  .list-title {
-    font-size: 24px;
-  }
-  .task-input {
-    width: 200px;
-  }
-  .task-list {
-    width: 250px;
-  }
-  
-}

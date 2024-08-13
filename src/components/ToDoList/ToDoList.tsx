@@ -51,20 +51,25 @@ export default function ToDoList() {
             <ul className="task-list">
                 {tasks.map(task => (
                     <li className="task-item" key={task.id}>
-                        <input
-                            type="checkbox"
-                            className="custom-checkbox"
-                            checked={task.completed}
-                            onChange={() => toggleTask(task.id)}
-                        />
-                        <span className="checkmark"></span>
-
-                        <span className="task-text" style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+                        <div>
+                            <input
+                                type="checkbox"
+                                className="custom-checkbox"
+                                checked={task.completed}
+                                onChange={() => toggleTask(task.id)}
+                            />
+                            <span className="checkmark"></span>
+                        </div>
+                        
+                        <p className="task-text" style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
                             {task.text}
-                        </span>
-                        <button className="button" onClick={() => deleteTask(task.id)}>
-                            <i className="fas fa-trash-alt"></i>
-                        </button>
+                        </p>
+                        
+                        <div>
+                            <button className="button" onClick={() => deleteTask(task.id)}>
+                                <i className="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
                     </li>
                 ))}
             </ul>
