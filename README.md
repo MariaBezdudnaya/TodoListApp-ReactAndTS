@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# TODO-List
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание
+В рамках данного проекта разработано single-page приложение “Список дел”, которое позволяет пользователю организовывать своё время, записывая дела.
 
-## Available Scripts
+Приложение включает в себя компонент ToDoList, который хранит состояние, содержащие массив задач (tasks). 
 
-In the project directory, you can run:
+Каждая задача представлена в виде объекта с тремя полями: id (уникальный идентификатор), text (текст задачи) и completed (флаг выполнения).
 
-### `npm start`
+Для добавления новой задачи предусмотрено текстовое поле и кнопка "Add".
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Список отображает все задачи, каждая из которых имеет кастомный чекбокс для отметки выполнения и кнопку "Delete" для удаления задачи.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+При изменении состояния чекбокса обновляется и состояние соответствующей задачи, а текст задачи перечёркивается.
 
-### `npm test`
+Нажатие на кнопку "Delete" приводит к удалению задачи из списка.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Приложение стилизовано с помощью CSS.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Технологии
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+В данном проекте используются React + TypeScript.
 
-### `npm run eject`
+## Как использовать
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Чтобы увидеть, как работает проект, вы можете перейти по ссылке <https://github.com/MariaBezdudnaya/TODO-List.git> на GitHub Pages.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Также вы можете скачать этот репозиторий любым удобным способом и открыть его в вашей IDE. Для работы приложения необходимы установленные версии Node.js, npm и git.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Приложение можно запустить с помощью команды `npm start` после выполнения `npm install` для установки всех зависимостей.
