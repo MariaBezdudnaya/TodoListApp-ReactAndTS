@@ -80,3 +80,16 @@
   border-width: 0 2px 2px 0; /* Обводка для галочки */
   transform: rotate(45deg);
 }
+
+@media screen  and (max-width: 375px) {
+  .list-title {
+    font-size: 24px;
+  }
+  .task-input {
+    width: 200px;
+  }
+  .task-list {
+    width: 250px;
+  }
+  
+}
