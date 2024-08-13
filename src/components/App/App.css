@@ -1,0 +1,82 @@
+.App {
+  text-align: center;
+}
+
+.list-title {
+  margin-top: 80px;
+  margin-bottom: 15px;
+  font-size: 32px;
+}
+.task-input {
+  padding: 10px 15px;
+  width: 350px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  box-shadow: 0 0 10px #eee;
+  font-size: medium;
+}
+.button {
+  margin-left: 15px;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  box-shadow: 0 0 5px #bf8989;
+  font-size: medium;
+  cursor: pointer;
+  background-color: #cbb4b4;
+  transition: 0.5s;
+}
+.button:hover {
+  background-color: #e3d7d7;
+}
+.task-list {
+  width: 400px;
+  margin: 20px auto;
+  padding: 30px;
+  list-style-type: none;
+  text-align: left;
+  background-color: #c3aaaa;
+  border-radius: 5px;
+}
+
+.custom-checkbox {
+  position: relative;
+  margin-right: 10px;
+  top: 5px;
+  display: inline-block;
+  width: 20px; 
+  height: 20px; 
+  cursor: pointer;
+}
+.custom-checkbox input {
+  opacity: 0; 
+  width: 0;
+  height: 0;
+}
+.checkmark {
+  position: absolute;
+ 
+  background-color: #eee;
+  border-radius: 4px; /* Скруглённые углы */
+}
+.custom-checkbox input:checked + .checkmark {
+  background-color: #85a6ae; /* Цвет, когда включен */
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.custom-checkbox input:checked + .checkmark:after {
+  display: block;
+}
+.custom-checkbox .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px; /* Ширина галочки */
+  height: 10px; /* Высота галочки */
+  border: solid white; /* Цвет галочки */
+  border-width: 0 2px 2px 0; /* Обводка для галочки */
+  transform: rotate(45deg);
+}
