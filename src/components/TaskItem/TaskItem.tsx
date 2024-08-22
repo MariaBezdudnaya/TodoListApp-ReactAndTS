@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './TaskItem.css';
 
 interface Task {
@@ -14,6 +14,10 @@ interface TaskItemProps {
 }
 
 const TaskItem: React.FC<TaskItemProps> = ({ task, toggleTask, deleteTask }) => {
+    useEffect(() => {
+        console.log('Компонент TaskItem перерисован!')
+    })
+
     return (
         <li className="task-item">
             <div>

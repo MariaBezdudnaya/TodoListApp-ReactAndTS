@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './TaskInput.css';
 
 interface TaskInputProps {
@@ -7,7 +7,11 @@ interface TaskInputProps {
     addTask: () => void;
 }
 
-const TaskInput: React.FC<TaskInputProps> = ({ inputValue, setInputValue, addTask }) => {
+const TaskInput: React.FC<TaskInputProps> = React.memo(({ inputValue, setInputValue, addTask }) => {
+    useEffect(() => {
+        console.log('Компонент TaskInput перерисован!')
+    })
+
     return (
         <div className="add-task-container">
             <div className="add-input">
@@ -22,6 +26,6 @@ const TaskInput: React.FC<TaskInputProps> = ({ inputValue, setInputValue, addTas
             <button className="button" onClick={addTask}>Add</button>
         </div>
     )
-};
+});
 
 export default TaskInput;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import TaskInput from '../TaskInput/TaskInput';
 import TaskList from '../TaskList/TaskList';
 import './ToDoList.css';
@@ -14,7 +14,11 @@ const ToDoList: React.FC = () => {
     const [inputValue, setInputValue] = useState<string>('');
     const [nextId, setNextId] = useState<number>(1);
 
-    const addTask = () => {
+    useEffect(() => {
+        console.log('Вся страница перерисована!')
+    });
+
+    const addTask = useCallback(() => {
         if (inputValue.trim()) {
             const newTask = {
                 id: nextId,
@@ -22,27 +26,37 @@ const ToDoList: React.FC = () => {
                 completed: false,
             };
 
-            setTasks([...tasks, newTask]);
+            setTasks(prevTasks => [...prevTasks, newTask]);
             setInputValue('');
-            setNextId(nextId + 1);
+            setNextId(prevId => prevId + 1);
         }
-    };
+    }, [inputValue, nextId]);
 
-    const toggleTask = (taskId: number) => {
-        setTasks(tasks.map(task =>
-            task.id === taskId ? { ...task, completed: !task.completed } : task
-        ));
-    };
+    const toggleTask = useCallback((taskId: number) => {
+        setTasks(prevTasks =>
+            prevTasks.map(task =>
+                task.id === taskId ? { ...task, completed: !task.completed } : task
+            )
+        );
+    }, []);
 
-    const deleteTask = (taskId: number) => {
-        setTasks(tasks.filter(task => task.id !== taskId));
-    };
+    const deleteTask = useCallback((taskId: number) => {
+        setTasks(prevTasks => prevTasks.filter(task => task.id !== taskId));
+    }, []);
 
     return (
         <div>
             <h1 className="list-title">TODO List</h1>
-            <TaskInput inputValue={inputValue} setInputValue={setInputValue} addTask={addTask} />
-            <TaskList tasks={tasks} toggleTask={toggleTask} deleteTask={deleteTask} />
+            <TaskInput 
+                inputValue={inputValue} 
+                setInputValue={setInputValue} 
+                addTask={addTask} 
+            />
+            <TaskList 
+                tasks={tasks} 
+                toggleTask={toggleTask} 
+                deleteTask={deleteTask} 
+            />
         </div>
     );
 }

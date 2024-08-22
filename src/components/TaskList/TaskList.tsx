@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TaskItem from '../TaskItem/TaskItem';
 import './TaskList.css';
 
@@ -14,7 +14,11 @@ interface TaskListProps {
     deleteTask: (taskId: number) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, toggleTask, deleteTask }) => {
+const TaskList: React.FC<TaskListProps> = React.memo(({ tasks, toggleTask, deleteTask }) => {
+    useEffect(() => {
+        console.log('Компонент TaskList перерисован!')
+    })
+
     return (
         <ul className="task-list">
             {tasks.map(task => (
@@ -22,6 +26,6 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, toggleTask, deleteTask }) =>
             ))}
         </ul>
     )
-};
+});
 
 export default TaskList;
