@@ -7,7 +7,7 @@ interface TaskInputProps {
     addTask: () => void;
 }
 
-const TaskInput: React.FC<TaskInputProps> = React.memo(({ inputValue, setInputValue, addTask }) => {
+const TaskInput: React.FC<TaskInputProps> = React.memo(({ inputValue, setInputValue, addTask }) => { // React.memo, чтобы предотвратить ререндеринг, если пропсы не изменились
     useEffect(() => {
         console.log('Компонент TaskInput перерисован!')
     })
